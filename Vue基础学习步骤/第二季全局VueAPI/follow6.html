@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟6-component</title>
+</head>
+
+<body>
+    <div id="app">
+        <component></component>
+    </div>
+    <div id="app2">
+        <component></component>
+        <jubu-component :app-msg='msg'></jubu-component>
+    </div>
+
+    <script>
+        Vue.component('component', {
+            template: '<div>这是全局组件</div>'
+        })
+        var app = new Vue({
+                el: '#app',
+            }),
+            app2 = new Vue({
+                el: '#app2',
+                data: {
+                    msg: '这是局部'
+                },
+                components: {
+                    'jubu-component': {
+                        template: '<div>{{appMsg}}组件</div>',
+                        props: ['appMsg']
+                    }
+                }
+
+            })
+    </script>
+</body>
+
+</html>

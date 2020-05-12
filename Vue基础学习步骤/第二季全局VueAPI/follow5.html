@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟5-template</title>
+</head>
+
+<body>
+    <div id="app">{{msg}}</div>
+    <div id="app2">{{msg}}</div>
+    <template id="demo2">
+        <div>安网通信template2</div>
+    </template>
+    <div id="app3">{{msg}}</div>
+    <script type="x-template" id="demo3">
+        <div>安网通信template3</div>
+    </script>
+    <script>
+        var app = new Vue({
+                el: '#app',
+                data: {
+                    msg: '安网通信'
+                },
+                template: '<div>广州安网通信科技有限公司</div>'
+            }),
+            app2 = new Vue({
+                el: '#app2',
+                data: {
+                    msg: '安网通信2'
+                },
+                template: '#demo2'
+            }),
+            app3 = new Vue({
+                el: '#app3',
+                data: {
+                    msg: '安网通信3'
+                },
+                template: '#demo3'
+            })
+    </script>
+</body>
+
+</html>

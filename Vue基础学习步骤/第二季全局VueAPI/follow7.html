@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟7-props</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{msg}} -->
+        <component v-bind:app-msg="msg" :msg="msg" :test-msg="msg" here='这是组件'></component>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: '安网通信',
+            },
+            components: {
+                'component': {
+                    template: '<div>{{appMsg}}-{{msg}}-{{testMsg}}-{{here}}</div>',
+                    props: ['appMsg', 'msg', 'testMsg', 'here'],
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
