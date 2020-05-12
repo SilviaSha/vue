@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟2-computed</title>
+</head>
+
+<body>
+    <div id="app">
+        {{coverNo}}
+        <ul>
+            <li v-for="(item, index) in list">
+                <p><span>{{item.title}}</span>{{item.content}}</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var list = [{
+            title: '1',
+            content: '安网通信'
+        }, {
+            title: '2',
+            content: '广州安网通信科技有限公司'
+        }]
+        var app = new Vue({
+            el: '#app',
+            data: {
+                No: '123456789'
+            },
+            computed: {
+                coverNo: function() {
+                    return this.No.substr(2, 5)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
