@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟8-componentFather</title>
+</head>
+
+<body>
+    <div id="app">
+        <component1 msg='这是全局局部注册'></component1><br>
+        <component2 msg="这是全局嵌套"></component2><br>
+        <component3 msg='这是局部嵌套'></component3>
+    </div>
+    <script>
+        var component1 = {
+                template: '<div>{{msg}}</div>',
+                props: ['msg']
+            },
+            component2 = {
+                template: '<div>{{msg}}<component1 msg="嵌套在这里"></component1></div>',
+                props: ['msg'],
+                components: {
+                    'component1': component1
+                }
+            },
+            app = new Vue({
+                el: '#app',
+                data: {
+
+                },
+                components: {
+                    'component1': component1,
+                    'component2': component2,
+                    'component3': {
+                        template: '<div>{{msg}}<component1 msg="嵌套在这里"></component1></div>',
+                        props: ['msg'],
+                        components: {
+                            'component1': component1
+                        }
+                    }
+                }
+            })
+    </script>
+</body>
+
+</html>

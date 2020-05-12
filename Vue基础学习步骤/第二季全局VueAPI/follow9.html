@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟9-component标签</title>
+</head>
+
+<body>
+    <div id="app">
+        <component-a></component-a>
+        <component-b></component-b>
+        <component-c></component-c>
+        <br>
+        <br>
+        <div style="clear: both;"></div>
+        <hr>
+        <component :is="whichComponent"></component>
+        <div style="clear: both;"></div>
+        <hr>
+        <button @click="changeComponent">切换</button>
+    </div>
+    <script>
+        var componentA = {
+                template: '<span style="border:1px solid #ccc;padding:5px;float:left">componentA</span>'
+            },
+            componentB = {
+                template: '<span style="border:1px solid #ccc;padding:5px;float:left">componentB</span>'
+            },
+            componentC = {
+                template: '<span style="border:1px solid #ccc;padding:5px;float:left">componentC</span>'
+            },
+            app = new Vue({
+                el: '#app',
+                data: {
+                    whichComponent: componentA,
+                },
+                methods: {
+                    changeComponent: function() {
+                        var w = this.whichComponent,
+                            a = componentA,
+                            b = componentB,
+                            c = componentC,
+                            t = this.toggleTxt
+                        this.whichComponent = w == a ? b : w == b ? c : a
+                    }
+                },
+                components: {
+                    'componentA': componentA,
+                    'componentB': componentB,
+                    'componentC': componentC,
+                }
+            })
+    </script>
+</body>
+
+</html>

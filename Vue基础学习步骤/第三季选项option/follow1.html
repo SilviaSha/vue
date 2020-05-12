@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟1-propsData</title>
+</head>
+
+<body>
+    <extend-a id="extendA"></extend-a>
+    <extend-a id="extendB" porps='props'></extend-a>
+    <extendC></extendC>
+    <script>
+        var extend = Vue.extend({
+            template: '<div>{{msg}}：{{props}}</div>',
+            data() {
+                return {
+                    msg: '安网通信',
+                }
+            },
+            props: ['props']
+        })
+        new extend({
+            propsData: {
+                props: 'extendA'
+            }
+        }).$mount('#extendA')
+        new extend({
+            propsData: {
+                props: 'extendB'
+            }
+        }).$mount('#extendB')
+        new extend({
+            propsData: {
+                props: 'extendC'
+            }
+        }).$mount('extendC')
+    </script>
+</body>
+
+</html>
