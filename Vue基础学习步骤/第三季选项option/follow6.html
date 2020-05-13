@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟6-ExtendsOption扩展选项</title>
+</head>
+
+<body>
+    <div id="app">
+        {{num}}
+        <p>
+            <button @click="add">add</button>
+        </p>
+    </div>
+    <script>
+        var extendOp = {
+                methods: {
+                    add: function() {
+                        console.log('===extendsOp-methods')
+                    }
+                },
+                updated: function() {
+                    console.log('===extendsOp-updated')
+                }
+            },
+            app = new Vue({
+                el: '#app',
+                data: {
+                    num: ''
+                },
+                methods: {
+                    add: function() {
+                        this.num++
+                    }
+                },
+                updated: function() {
+                    console.log('updated')
+                },
+                extends: extendOp
+            })
+    </script>
+</body>
+
+</html>

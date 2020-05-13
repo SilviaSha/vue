@@ -9,7 +9,46 @@
 </head>
 
 <body>
-
+    <div id="app">
+        {{num}}
+        <button @click="add">add</button>
+        <button @click="add3(3)">add3</button>
+        <button @click="seeEvent($event)">seeEvent</button>
+        <p>{{logEvent}}</p>
+        <btn @click.native="add">add</btn>
+        <btn onclick="app.add()">app.add</btn>
+        <btn2 @click.native="add">add</btn2>
+    </div>
+    <script>
+        Vue.component('btn2', {
+            template: '<button>btn2Add</button>'
+        })
+        var btn = {
+            template: '<button>btnAdd</button>'
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+                logEvent: {}
+            },
+            methods: {
+                add: function() {
+                    this.num++
+                },
+                add3: function(plusNum) {
+                    this.num += plusNum
+                },
+                seeEvent: function(e) {
+                    console.log(e)
+                    this.logEvent = e
+                }
+            },
+            components: {
+                'btn': btn
+            }
+        })
+    </script>
 </body>
 
 </html>

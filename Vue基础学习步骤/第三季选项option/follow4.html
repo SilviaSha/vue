@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟4-watch</title>
+</head>
+
+<body>
+    <div id="app">
+        {{title}}
+        <p>{{suggestion}}</p>
+        <button @click="randomTem">生成</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title: '根据随机数变化',
+                templeature: 0,
+                suggestion: null
+            },
+            methods: {
+                randomTem: function() {
+                    this.templeature = Math.floor(Math.random() * 10)
+                }
+            },
+            watch: {
+                templeature: function(newVal, oldVal) {
+                    if (newVal < 3) {
+                        this.suggestion = 'a'
+                    } else if (newVal > 3 && newVal < 7) {
+                        this.suggestion = 'b'
+                    } else {
+                        this.suggestion = 'c'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

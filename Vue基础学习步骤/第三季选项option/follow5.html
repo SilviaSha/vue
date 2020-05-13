@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟5-Mixins混入选项操作</title>
+</head>
+
+<body>
+    <div id="app">
+        {{num}}
+        <button @click="add">add</button>
+        <button @click="minus">minus</button>
+        <button @click="check">check</button>
+    </div>
+    <script>
+        //执行顺序：
+        //Vue.mixin
+        // extends:extendOp
+        // mixins:[addLog]
+        // beforeUpdate
+
+        Vue.mixin({
+            beforeUpdate: function() {
+                console.log('我是全局混入的mixin-beforeUpdate')
+            }
+        })
+
+        var addLog = {
+                beforeUpdate: function() {
+                    console.log(this.num + 'addLog-beforeUpdate')
+                },
+                //构造器重名不起作用
+                methods: {
+                    minus: function() {
+                        console.log('===addLog-methods-minus')
+                    },
+                    check: function() {
+                        console.log('===check')
+                    }
+                }
+            },
+            extendOp = {
+                methods: {
+                    minus: function() {
+                        console.log('===extendOp-methods-minus')
+                    }
+                }
+            },
+            app = new Vue({
+                el: '#app',
+                data: {
+                    num: ''
+                },
+                methods: {
+                    add: function() {
+                        this.num++
+                            console.log('===add')
+                    },
+                    minus: function() {
+                        this.num--
+                            console.log('===minus')
+                    }
+                },
+                mixins: [addLog],
+                extends: extendOp,
+                updated: function() {
+                    console.log('===updated')
+                },
+                beforeUpdate: function() {
+                    console.log('===beforeUpdate')
+                }
+            })
+    </script>
+</body>
+
+</html>
