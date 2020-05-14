@@ -1,33 +1,33 @@
 ## Vue 基础学习
 
 <div>
-<img src="githubimages/jichudemo.png" width="33%" height="500px"><img src="githubimages/jicchumulu.jpg" width="33%" height="500px"><img src="githubimages/Snip20180302_25.png" width="33%" height="500px">
+<img src="./githubimages/jichudemo.png" width="33%" height="500px"><img src="./githubimages/jicchumulu.jpg" width="33%" height="500px"><img src="./githubimages/Snip20180302_25.png" width="33%" height="500px">
 </div>
 
 
 ## Vue 全家桶
 
 <div>
-<img src="githubimages/Snip20180306_6.png" width="25%">|
-<img src="githubimages/Snip20180306_13.png" width="25%">|
-<img src="githubimages/Snip20180306_7.png" width="25%">|
-<img src="githubimages/Snip20180306_8.png" width="24%">|
-<img src="githubimages/Snip20180306_9.png" width="24%">|
-<img src="githubimages/Snip20180306_11.png" width="24%">
+<img src="./githubimages/Snip20180306_6.png" width="25%">|
+<img src="./githubimages/Snip20180306_13.png" width="25%">|
+<img src="./githubimages/Snip20180306_7.png" width="25%">|
+<img src="./githubimages/Snip20180306_8.png" width="24%">|
+<img src="./githubimages/Snip20180306_9.png" width="24%">|
+<img src="./githubimages/Snip20180306_11.png" width="24%">
 </div>
 
 ## Vue 实战 + webpack注释
 
 <div>
-<img src="githubimages/Snip20180313_1.png" width="25%">|
-<img src="githubimages/Snip20180313_2.png" width="25%">|
-<img src="githubimages/Snip20180313_4.png" width="45%">
+<img src="./githubimages/Snip20180313_1.png" width="25%">|
+<img src="./githubimages/Snip20180313_2.png" width="25%">|
+<img src="./githubimages/Snip20180313_4.png" width="45%">
 </div>
 
 ## Weex
 
 <div>
-<img src="githubimages/Snip20180327_4.png" width="50%">|
+<img src="./githubimages/Snip20180327_4.png" width="50%">|
 </div>
 
 
