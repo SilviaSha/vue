@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟2-实例方法</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+    <div id="tmp"></div>
+
+    <button onclick="app.$forceUpdate()">强制更新app</button>
+    <button onclick="ex.$forceUpdate()">强制更新ex</button>
+    <button onclick="destroyApp()">销毁</button>
+    <button onclick="changeMsg()">nextTick更换名字</button>
+    <script>
+        var app = new Vue({
+                el: '#app',
+                data: {
+                    msg: ''
+                },
+                destroyed: function() {
+                    console.log('销毁之后')
+                },
+                beforeUpdate: function() {
+                    console.log('数据更新前')
+                },
+                updated: function() {
+                    console.log('数据被更新后')
+                },
+                nextTick: function() {
+                    console.log('更新啦', this.msg)
+                }
+            }),
+            extend = Vue.extend({
+                template: '<div>{{msg}}</div>',
+                data() {
+                    return {
+                        msg: '通信'
+                    }
+                },
+                destroyed: function() {
+                    console.log('extend-销毁之后')
+                },
+                beforeUpdate: function() {
+                    console.log('extend-数据更新前')
+                },
+                updated: function() {
+                    console.log('extend-数据被更新后')
+                },
+                nextTick: function() {
+                    console.log('extend-更新啦', this.msg)
+                }
+            }),
+            ex = new extend().$mount('#tmp')
+
+        function destroyApp() {
+            ex.$destroy()
+            app.$destroy()
+        }
+
+        function changeMsg() {
+            ex.msg = '安网通信'
+            ex.$nextTick(function() {
+                console.log(ex.msg)
+            })
+            setTimeout(function() {
+                ex.msg = '安网'
+            }, 1e3)
+        }
+    </script>
+</body>
+
+</html>

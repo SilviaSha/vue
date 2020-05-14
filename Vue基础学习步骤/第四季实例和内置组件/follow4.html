@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>跟4-内置组件slot</title>
+</head>
+
+<body>
+    <div id="app">
+        <student>
+            <span slot="userScore">{{student.score}}</span>
+            <span slot="nickName">{{student.name}}</span>
+            <span slot="userAge">{{student.age}}</span>
+        </student>
+        <student>
+
+        </student>
+    </div>
+    <template id="tmp">
+            <div>
+                <p>name:
+                    <slot name="nickName"><label>name</label></slot>
+                </p>
+                <p>age:
+                    <slot name="userAge"><label>age</label></slot>
+                </p>
+                <p>score:
+                    <slot name="userScore"><label>score</label></slot>
+                </p>
+            </div>
+        </template>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    student: {
+                        name: '安网通信',
+                        age: 4,
+                        score: 99
+                    }
+                }
+            },
+            components: {
+                'student': {
+                    template: '#tmp',
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
