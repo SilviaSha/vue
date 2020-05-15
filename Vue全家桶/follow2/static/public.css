@@ -1,0 +1,42 @@
+body {
+  font-size: 0.5rem;
+  padding: 0.5rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul, li, dl {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 0.75rem;
+}
+
+.panel-nav {
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  display: flex;
+}
+
+.panel-nav li{
+  font-size: 0.56rem;
+  line-height:1.5rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  flex-grow: 1;
+  cursor: pointer;
+}
